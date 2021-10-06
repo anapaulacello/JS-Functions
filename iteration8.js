@@ -13,18 +13,16 @@ const counterWords = [
   ];
   function repeatCounter(param) {
       
-      let arreglo=[];
+      let arreglo={};
       for (let i = 0; i < param.length; i++) {
-        let cont=1;
-          for (let j = i+1; j < param.length; j++) {
-              if (param[i]===param[j]) {
-                  cont++;
-              }
-             
-          }
-          arreglo.push(cont);   
-      }
-      return arreglo;
-  }
+        if (param[i] in arreglo) {
+            arreglo[param[i]]++;
+        }
+        else{
+            arreglo[param[i]]=1;
+        }
+    }
+    return arreglo;
+}
 
   console.log(repeatCounter(counterWords));
